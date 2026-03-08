@@ -78,11 +78,14 @@ cp user-level/agents/*.md ~/.claude/agents/
 mkdir -p knowledge-base/{overview,modules,architecture,features,decisions} .claude/{handoffs,skills}
 
 # Copy templates
-cp project-template/CLAUDE.md ./CLAUDE.md
-cp project-template/knowledge-base/INDEX.md ./knowledge-base/
-cp project-template/knowledge-base/decisions/ADR-TEMPLATE.md ./knowledge-base/decisions/
-cp project-template/.claude/handoffs/*.md ./.claude/handoffs/
+# Set the CLAUDE_AGENT_SETUP_DIR to where this project-template is located
+export CLAUDE_AGENTS_SETUP_DIR=$HOME/workspace/claude-agents-setup
 
+# Copy claude-agents files
+cp $CLAUDE_AGENTS_SETUP_DIR/project-template/CLAUDE.md ./CLAUDE.md
+cp $CLAUDE_AGENTS_SETUP_DIR/project-template/knowledge-base/INDEX.md ./knowledge-base/
+cp $CLAUDE_AGENTS_SETUP_DIR/project-template/knowledge-base/decisions/ADR-TEMPLATE.md ./knowledge-base/decisions/
+cp $CLAUDE_AGENTS_SETUP_DIR/project-template/.claude/handoffs/*.md ./.claude/handoffs/
 # Edit INDEX.md to match your project
 ```
 
